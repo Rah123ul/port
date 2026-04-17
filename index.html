@@ -668,6 +668,27 @@
       box-shadow: 0 0 0 6px rgba(200, 65, 11, 0.15);
     }
 
+    /* Featured project card */
+    .project-card-featured {
+      background: var(--card); padding: 40px 36px; color: var(--ink);
+      display: flex; flex-direction: column; gap: 16px;
+      border-left: 3px solid var(--accent);
+      grid-column: 1 / -1;
+      transition: background 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .project-card-featured:hover { background: var(--ink); }
+    .project-card-featured:hover * { color: var(--bg) !important; }
+    .project-card-featured:hover .project-chip { background: rgba(255,255,255,0.08); }
+    .project-card-featured:hover .app-preview { border-color: rgba(255,255,255,0.15) !important; background: rgba(255,255,255,0.05) !important; }
+    .app-previews { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 12px; }
+    .app-preview { background: var(--bg); border: 1px solid var(--rule); padding: 14px 16px; text-decoration: none; color: var(--ink); transition: border-color 0.2s; display: block; }
+    .app-preview:hover { border-color: var(--accent); }
+    .app-preview-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 6px; }
+    .app-preview-name { font-family: var(--serif); font-size: 16px; font-weight: 300; }
+    .app-preview-url { font-size: 10px; color: var(--accent); margin-top: 4px; }
+    @media (max-width: 900px) { .app-previews { grid-template-columns: 1fr; } }
+
     /* Contact */
     #contact {
       min-height: 50vh;
@@ -1085,6 +1106,10 @@
           <span class="detail-label">Availability</span>
           <span class="detail-value">Open to internships</span>
         </div>
+        <div class="detail-row">
+          <span class="detail-label">Internship</span>
+          <span class="detail-value">Bluestock Fintech · 2026</span>
+        </div>
       </div>
     </div>
   </section>
@@ -1099,6 +1124,8 @@
         <div class="skill-tags">
           <span class="skill-tag">React.js</span>
           <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">Tailwind CSS</span>
           <span class="skill-tag">HTML</span>
           <span class="skill-tag">CSS</span>
         </div>
@@ -1109,6 +1136,9 @@
           <span class="skill-tag">Node.js</span>
           <span class="skill-tag">Express</span>
           <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">Prisma ORM</span>
+          <span class="skill-tag">Redis</span>
           <span class="skill-tag">Python</span>
           <span class="skill-tag">MySQL</span>
           <span class="skill-tag">Pandas</span>
@@ -1169,6 +1199,43 @@
         </div>
         <span class="project-link">Visit Site ↗</span>
       </a>
+      <div class="project-card-featured reveal" style="transition-delay:0.16s">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
+          <div class="project-num">03</div>
+          <span style="font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); background:rgba(200,65,11,0.08); padding:5px 12px;">Bluestock Internship · 2026</span>
+        </div>
+        <h3>MDDS India Village Directory API</h3>
+        <p>A production-grade B2B SaaS API platform serving 640,000+ Indian villages across all states. Designed a normalized PostgreSQL database, built a secure REST API with Redis rate limiting and bcrypt API key authentication, and developed 3 React frontends — Admin Dashboard with analytics charts, B2B Client Portal with API key management, and a live village autocomplete Demo App. Deployed entirely on Vercel.</p>
+        <div class="project-chips">
+          <span class="project-chip">Node.js</span>
+          <span class="project-chip">Express</span>
+          <span class="project-chip">PostgreSQL</span>
+          <span class="project-chip">Prisma</span>
+          <span class="project-chip">Redis</span>
+          <span class="project-chip">React</span>
+          <span class="project-chip">Tailwind CSS</span>
+          <span class="project-chip">Python</span>
+          <span class="project-chip">Vercel</span>
+          <span class="project-chip">640K+ Villages</span>
+        </div>
+        <div class="app-previews">
+          <a href="https://admin-dashboard-theta-murex-15.vercel.app" target="_blank" class="app-preview">
+            <div class="app-preview-label">App 1 — Admin</div>
+            <div class="app-preview-name">Admin Dashboard</div>
+            <div class="app-preview-url">Launch ↗</div>
+          </a>
+          <a href="https://b2b-portal-sigma-ochre.vercel.app" target="_blank" class="app-preview">
+            <div class="app-preview-label">App 2 — B2B</div>
+            <div class="app-preview-name">Client Portal</div>
+            <div class="app-preview-url">Launch ↗</div>
+          </a>
+          <a href="https://demo-app-vert.vercel.app" target="_blank" class="app-preview">
+            <div class="app-preview-label">App 3 — Demo</div>
+            <div class="app-preview-name">Village Autocomplete</div>
+            <div class="app-preview-url">Launch ↗</div>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1245,6 +1312,17 @@
     <div style="margin-top:48px">
       <div class="exp-item reveal">
         <div class="exp-period">
+          <strong>Internship</strong>
+          Apr 2026
+        </div>
+        <div class="exp-content">
+          <h3>Software Development Intern</h3>
+          <div class="exp-company">Bluestock Fintech · Remote</div>
+          <p class="exp-desc">Built a production-grade B2B SaaS API platform — MDDS India Village Directory — covering 640,000+ villages across all Indian states. Designed a 3NF PostgreSQL database, built a secure REST API with Redis rate limiting and bcrypt API key authentication, and developed 3 React frontends. Deployed the full stack on Vercel.</p>
+        </div>
+      </div>
+      <div class="exp-item reveal" style="transition-delay:0.08s">
+        <div class="exp-period">
           <strong>Current</strong>
           2023 – Present
         </div>
@@ -1287,6 +1365,7 @@
       <a href="tel:+917479819798" class="contact-link">📞 +91 74798 19798</a>
       <a href="https://rah123ul.github.io/banglo/" target="_blank" class="contact-link">↗ SNS Club</a>
       <a href="https://rah123ul.github.io/medico/" target="_blank" class="contact-link">↗ Medico App</a>
+      <a href="https://rah123ul.github.io/intern_s/" target="_blank" class="contact-link">↗ Capstone Project</a>
       <a href="https://github.com/rah123ul" target="_blank" class="contact-link">↗ GitHub</a>
     </div>
   </section>
